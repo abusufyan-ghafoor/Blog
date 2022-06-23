@@ -1,0 +1,19 @@
+<div class="post_form">
+    <h3> <%= @post.post_name%> </h3>
+    <div ><%= image_tag @post.image, class: "post_image" %> </div>
+    <p><%= @post.post_description %></p>
+    <div>
+        <% if user_signed_in? && @post.user_id == current_user.id %>
+            <%= link_to "Edit Post", edit_post_path(@post) %> || <%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+        <% end %>
+    </div>
+    <%= link_to "Back", :back %>
+
+    <% if user_signed_in? %>
+        <%= render 'comments/form'%>
+    <% end %>
+    <h2>Comments</h2>
+    <% @post.comments.each do |comment| %>
+        <%= render comment %>
+    <% end %>
+</div>

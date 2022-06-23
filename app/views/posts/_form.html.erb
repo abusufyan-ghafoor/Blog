@@ -1,0 +1,42 @@
+
+<%= form_with model: @post, local: true, html: { multipart: true }  do |form| %>
+ 
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@post.errors.count, "error") %> prohibited
+          this post from being saved:
+        </h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+   
+    <div class="post_form">
+      <div class="mb-3">
+        <%= form.label "Post Name", class: "form-label"%><br>
+        <%= form.text_field :post_name, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+          <%= form.label "Post Description",  class: "form-label" %><br>
+          <%= form.text_area :post_description, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label "Add Image",  class: "form-label" %><br>
+        <%= form.file_field :image %>
+      </div>
+
+      <p>
+          <%= form.hidden_field :user_id, value: current_user.id %>
+      </p>
+    
+      <div>
+        <%= form.submit "Submit Post", class: "mb-3 btn btn-danger" %>
+      </div>
+    </div>
+   
+  <% end %>

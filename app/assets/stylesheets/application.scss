@@ -1,0 +1,40 @@
+@import "bootstrap/scss/bootstrap";
+.post_image {
+    width: 700px;
+    height: 350px;
+    margin: 30px 30px;
+}
+.home_text {
+    text-align: center !important;
+    text-decoration: none !important;
+    color: goldenrod;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.post_img {
+    width: 120px;
+    height: 60px;
+}
+.post_box {
+    font-size: 40px;
+    text-decoration: none!important;
+    color: blueviolet!important;
+}
+.posts_heading {
+    text-align: center;
+    font-size: 30px;
+    color: red;
+}
+.index_posts {
+    padding: 0px 20px;
+}
+.writter {
+    font-size: 15px;
+    color: red;
+}
+.post_form {
+    padding: 0px 120px;
+}
+.index-link {
+    color: red;
+    padding: 10px;
+  }

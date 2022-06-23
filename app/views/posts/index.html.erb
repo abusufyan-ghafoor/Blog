@@ -1,0 +1,28 @@
+<div class="container">
+  <p class="posts_heading"> All Posts </p>
+  <div>
+    <% if user_signed_in? %>
+      <p><%= link_to "create Post", new_post_path %></p>
+    <% end %>
+  </div>
+  <div>
+      <% @posts.each do |post| %>
+          <br>
+
+          <div class="index_posts">
+              <div class="row"> 
+                <div class="col-lg-2">
+                  <%= image_tag post.image, class: "post_img" %> 
+                </div>
+                <div class="col-lg-10">
+                  <%= link_to post.post_name, post, class: "post_box" %>
+                  <span class="writter">&nbsp; &nbsp; by:<%= post.user.name %></span>
+                </div>
+              </div>
+          </div>
+          <hr>
+      <% end %>
+  </div>
+  <%= paginate @posts %>
+</div>
+
